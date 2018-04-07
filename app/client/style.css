@@ -1,0 +1,8 @@
+.background-image {
+  background: url('/images/uhss_bg_image.png') no-repeat center center;
+  background-size: cover;
+}
+
+.uh-background {
+  background-color: #00512f;
+}
