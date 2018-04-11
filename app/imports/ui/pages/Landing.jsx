@@ -6,8 +6,8 @@ class Landing extends React.Component {
   render() {
     const divStyle = { padding: '100px'};
     return (
-        <div style={divStyle} className='background-image'>
-          <Grid centered columns={2}>
+        <div className='background-image'>
+          <Grid style={divStyle} centered columns={2}>
             <Grid.Column width={4}>
               <Image size='medium' src="/images/UH_logo.png"/>
             </Grid.Column>
