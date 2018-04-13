@@ -34,15 +34,24 @@ export default class Signout extends React.Component {
               </Grid.Row>
 
               <Header size='medium'><Icon name='arrow circle outline up'/> Listings </Header>
-              <Table celled selectable>
+              <Table basic selectable>
                 <Table.Header>
                   <Table.Row>
                     <Table.HeaderCell> Item </Table.HeaderCell>
                     <Table.HeaderCell> Category </Table.HeaderCell>
                     <Table.HeaderCell> Price </Table.HeaderCell>
-                    <Table.HeaderCell> Meeting Place </Table.HeaderCell>
+                    <Table.HeaderCell> Condition </Table.HeaderCell>
                   </Table.Row>
                 </Table.Header>
+
+                <Table.Body>
+                  <Table.Row>
+                    <Table.Cell>IKEA Couch</Table.Cell>
+                    <Table.Cell>Furniture</Table.Cell>
+                    <Table.Cell>$250</Table.Cell>
+                    <Table.Cell>Used</Table.Cell>
+                  </Table.Row>
+                </Table.Body>
               </Table>
             </Grid.Column>
           </Grid>
