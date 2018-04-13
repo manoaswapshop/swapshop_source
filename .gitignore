@@ -2,3 +2,4 @@
 .idea
 .DS_Store
 node_modules
+app/settings.production.json
