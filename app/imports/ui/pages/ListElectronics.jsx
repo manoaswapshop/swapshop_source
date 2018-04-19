@@ -7,7 +7,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class ListStuff extends React.Component {
+class ListElectronics extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -19,7 +19,7 @@ class ListStuff extends React.Component {
     return (
         <div className='background-image'>
           <Container>
-            <Header as="h2" textAlign="center" inverted>Listed Items</Header>
+            <Header inverted as="h2" textAlign="center">Electronics</Header>
             <Table celled>
               <Table.Header>
                 <Table.Row>
@@ -41,7 +41,7 @@ class ListStuff extends React.Component {
 }
 
 /** Require an array of Stuff documents in the props. */
-ListStuff.propTypes = {
+ListElectronics.propTypes = {
   stuffs: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -49,9 +49,9 @@ ListStuff.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('AllStuff');
+  const subscription = Meteor.subscribe('Electronics');
   return {
     stuffs: Stuffs.find({}).fetch(),
     ready: subscription.ready(),
   };
-})(ListStuff);
+})(ListElectronics);

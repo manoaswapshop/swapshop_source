@@ -8,12 +8,22 @@ const Stuffs = new Mongo.Collection('Stuffs');
 /** Create a schema to constrain the structure of documents associated with this collection. */
 const StuffSchema = new SimpleSchema({
   name: String,
-  quantity: Number,
+  category: {
+    type: String,
+    allowedValues: ['clothing', 'textbooks', 'electronics', 'furniture'],
+    defaultValue: 'textbooks',
+  },
+  price: Number,
   owner: String,
   condition: {
     type: String,
     allowedValues: ['excellent', 'good', 'fair', 'poor'],
     defaultValue: 'good',
+  },
+  location: {
+    type: String,
+    allowedValues: ['Campus Center', 'Campus Center Courtyard', 'Hamilton Library'],
+    defaultValue: 'Campus Center',
   },
 }, { tracker: Tracker });
 

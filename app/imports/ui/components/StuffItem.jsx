@@ -9,11 +9,10 @@ class StuffItem extends React.Component {
     return (
         <Table.Row>
           <Table.Cell>{this.props.stuff.name}</Table.Cell>
-          <Table.Cell>{this.props.stuff.quantity}</Table.Cell>
+          <Table.Cell>{this.props.stuff.category}</Table.Cell>
           <Table.Cell>{this.props.stuff.condition}</Table.Cell>
-          <Table.Cell>
-            <Link to={`/edit/${this.props.stuff._id}`}>Edit</Link>
-          </Table.Cell>
+          <Table.Cell>{this.props.stuff.price}</Table.Cell>
+          <Table.Cell>{this.props.stuff.location}</Table.Cell>
         </Table.Row>
     );
   }

@@ -5,9 +5,21 @@
   ],
 
   "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+    { "name": "20 Inch Flatscreen", "category": "electronics", "condition": "excellent", "price": 100, "owner": "john@foo.com", "location": "Campus Center"},
+    { "name": "History 121 Text", "category": "textbooks", "condition": "fair", "price": 15, "owner": "john@foo.com", "location": "Hamilton Library"},
+    { "name": "Star Wars T-Shirt", "category": "clothing", "condition": "fair", "price": 3, "owner": "john@foo.com", "location": "Campus Center"},
+    { "name": "Folding Chair", "category": "furniture", "condition": "poor", "price": 10, "owner": "john@foo.com", "location": "Campus Center Courtyard"},
+    { "name": "Xbox Juan", "category": "electronics", "condition": "excellent", "price": 200, "owner": "bob@foo.com", "location": "Campus Center"},
+    { "name": "Flaystation 4", "category": "electronics", "condition": "fair", "price": 200, "owner": "chuthulu@foo.com", "location": "Campus Center"},
+    { "name": "Orange Couch", "category": "furniture", "condition": "poor", "price": 50, "owner": "keenan@foo.com", "location": "Campus Center"},
+    { "name": "Mini Fridge", "category": "furniture", "condition": "fair", "price": 40, "owner": "mrFreeze@foo.com", "location": "Hamilton Library"},
+    { "name": "Basketball Jersey", "category": "clothing", "condition": "fair", "price": 5, "owner": "mJordan@foo.com", "location": "Hamilton Library"},
+    { "name": "Mating Habits of Etruscan Owls", "category": "textbooks", "condition": "good", "price": 50, "owner": "owlman@foo.com", "location": "Hamilton Library"},
+    { "name": "Your Tumor and You", "category": "textbooks", "condition": "good", "price": 200, "owner": "itsNotaTumor@foo.com", "location": "Campus Center Courtyard"},
+    { "name": "Floral Dress", "category": "clothing", "condition": "excellent", "price": 10, "owner": "girlygirl@foo.com", "location": "Campus Center Courtyard"},
+    { "name": "uPad Tablet", "category": "electronics", "condition": "fair", "price": 40, "owner": "steveHobs@foo.com", "location": "Campus Center"},
+    { "name": "Quantum Physics Observed", "category": "textbooks", "condition": "fair", "price": 30, "owner": "heisenberg@foo.com", "location": "Campus Center Courtyard"},
+    { "name": "End Table", "category": "furniture", "condition": "good", "price": 20, "owner": "marthaStewart@foo.com", "location": "Campus Center"},
+    { "name": "It ain't Easy Being Weezy: A Biography", "category": "textbooks", "condition": "fair", "price": 5, "owner": "asthmatic@foo.com", "location": "Campus Center"}
   ]
 }

@@ -25,6 +25,22 @@ Meteor.publish('Stuff', function publish() {
   return this.ready();
 });
 
+Meteor.publish('AllStuff', function publish() {
+  return Stuffs.find()
+});
+
+Meteor.publish('Clothing', function publish() {
+  return Stuffs.find({ category: 'clothing' });
+});
+Meteor.publish('Textbooks', function publish() {
+  return Stuffs.find({ category: 'textbooks' });
+});
+Meteor.publish('Electronics', function publish() {
+  return Stuffs.find({ category: 'electronics' });
+});
+Meteor.publish('Furniture', function publish() {
+  return Stuffs.find({ category: 'furniture' });
+});
 /** This subscription publishes all documents regardless of user, but only if the logged in user is the Admin. */
 Meteor.publish('StuffAdmin', function publish() {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {

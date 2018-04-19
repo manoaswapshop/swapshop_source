@@ -14,11 +14,11 @@ class Footer extends React.Component {
                 <Grid.Column>
                   Categories
                   <hr />
-                  <List>
-                    <List.Item>-Clothing</List.Item>
-                    <List.Item>-Textbooks</List.Item>
-                    <List.Item>-Electronics</List.Item>
-                    <List.Item>-Furniture</List.Item>
+                  <List link inverted>
+                    <List.Item as={NavLink} exact to="/clothing">-Clothing</List.Item>
+                    <List.Item as={NavLink} exact to="/textbooks">-Textbooks</List.Item>
+                    <List.Item as={NavLink} exact to="/electronics">-Electronics</List.Item>
+                    <List.Item as={NavLink} exact to="/furniture">-Furniture</List.Item>
                   </List>
                 </Grid.Column>
                 <Grid.Column>
@@ -34,11 +34,11 @@ class Footer extends React.Component {
                 <Grid.Column>
                   Contact Us
                   <hr />
-                  <List>
-                    <List.Item>admin@email.com</List.Item>
-                    <List.Item>Phone: 808-867-5309</List.Item>
-                    <List.Item>Help</List.Item>
-                    <List.Item>FAQ</List.Item>
+                  <List link inverted>
+                    <List.Item as='a'>admin@email.com</List.Item>
+                    <List.Item class="item">Phone: 808-867-5309</List.Item>
+                    <List.Item as='a'>Help</List.Item>
+                    <List.Item as='a'>FAQ</List.Item>
                   </List>
                 </Grid.Column>
               </Grid>

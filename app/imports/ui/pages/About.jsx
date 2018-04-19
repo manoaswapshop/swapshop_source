@@ -7,7 +7,7 @@ import { Grid, Icon, Header } from 'semantic-ui-react';
  */
 export default class About extends React.Component {
   render() {
-    const divStyle = { paddintTop: '20px', paddingBottom: '20px' };
+    const divStyle = { paddingTop: '20px', paddingBottom: '20px' };
     return (
         <div className='background-image'>
           <Grid style={divStyle} container stackable centered columns={3}>
