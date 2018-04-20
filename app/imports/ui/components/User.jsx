@@ -27,7 +27,6 @@ class User extends React.Component {
                 <Icon name='phone'/> {this.props.user.userNumber}
               </Grid.Row>
               <Grid.Row>
-                <Link to={`/editprofile/${this.props.user._id}`}>Edit</Link>
                 UH Number: {this.props.user.uhNumber}
               </Grid.Row>
               <Grid.Row>
@@ -36,6 +35,7 @@ class User extends React.Component {
             </Grid.Column>
             <Grid.Column style={columnTwo} width={12}>
               <Header size='large'> {this.props.user.firstName} {this.props.user.lastName} </Header>
+              <Link to={`/editprofile/${this.props.user._id}`}>Edit Profile</Link>
               <Header size='medium'> Reputation </Header>
               <Grid.Row>
                 4.5
@@ -52,8 +52,8 @@ class User extends React.Component {
                   <Table.Row>
                     <Table.HeaderCell> Item </Table.HeaderCell>
                     <Table.HeaderCell> Category </Table.HeaderCell>
-                    <Table.HeaderCell> Price </Table.HeaderCell>
                     <Table.HeaderCell> Condition </Table.HeaderCell>
+                    <Table.HeaderCell> Price </Table.HeaderCell>
                   </Table.Row>
                 </Table.Header>
 
