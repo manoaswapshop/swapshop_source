@@ -36,12 +36,13 @@ class NavBar extends React.Component {
                   <Dropdown.Menu>
 
                     <Dropdown.Item icon="id card" text="My Profile" as={NavLink} exact to="/userprofile"/>
-                    <Dropdown.Item icon="write" text="Edit User Profile" as={NavLink} exact to="/editprofile"/>
-                    <Dropdown.Item icon="sign out" text="Sign Out" as={NavLink} exact to="/signout"/>
+                    <Dropdown.Item icon="write" text="Edit User Profile" as={NavLink}
+                                   to="/editprofile"/>
+                    < Dropdown.Item icon="sign out" text="Sign Out" as={NavLink} exact to="/signout"/>
 
                   </Dropdown.Menu>
                 </Dropdown>
-            )}
+              )}
           </Menu.Item>
         </Menu>
     );
@@ -51,6 +52,7 @@ class NavBar extends React.Component {
 /** Declare the types of all properties. */
 NavBar.propTypes = {
   currentUser: PropTypes.string,
+  user: PropTypes.object,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */

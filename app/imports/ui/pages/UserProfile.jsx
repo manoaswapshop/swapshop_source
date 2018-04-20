@@ -1,61 +1,42 @@
 import React from 'react';
-import { Container, Grid, Image, Header, Icon, List, Table } from 'semantic-ui-react';
+import { Container, Loader } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import { withTracker } from 'meteor/react-meteor-data';
+import { Meteor } from 'meteor/meteor';
+import { Users } from '/imports/api/user/user';
+import User from '/imports/ui/components/User';
 
-export default class Signout extends React.Component {
+class UserProfile extends React.Component {
+
+  /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
-    const columnTwo = { paddingLeft: '50px' };
-    const containerStyle = { paddingTop: '50px', paddingBottom: '50px' };
+    return (this.props.ready) ? this.renderPage() : <Loader>Getting data</Loader>;
+  }
+
+  renderPage() {
     return (
-        <Container style={containerStyle}>
-          <Grid columns={2}>
-            <Grid.Column width={4}>
-              <Image src='/images/peacock2016.jpg' circular/>
-              <hr/>
-              <Grid.Row>
-                <Header size='medium'> Contact Information </Header>
-              </Grid.Row>
-              <Grid.Row>
-                <Icon name='envelope'/> misterpeacockhawaii@gmail.com
-              </Grid.Row>
-              <Grid.Row>
-                <Icon name='phone'/> 808-555-5555
-              </Grid.Row>
-            </Grid.Column>
-            <Grid.Column style={columnTwo} width={12}>
-              <Header size='large'> Mister Peacock </Header>
-              <Header size='medium'> Reputation </Header>
-              <Grid.Row>
-                4.5
-                <Icon name='star'/>
-                <Icon name='star'/>
-                <Icon name='star'/>
-                <Icon name='star'/>
-                <Icon name='star half full'/>
-              </Grid.Row>
-
-              <Header size='medium'><Icon name='arrow circle outline up'/> Listings </Header>
-              <Table basic selectable>
-                <Table.Header>
-                  <Table.Row>
-                    <Table.HeaderCell> Item </Table.HeaderCell>
-                    <Table.HeaderCell> Category </Table.HeaderCell>
-                    <Table.HeaderCell> Price </Table.HeaderCell>
-                    <Table.HeaderCell> Condition </Table.HeaderCell>
-                  </Table.Row>
-                </Table.Header>
-
-                <Table.Body>
-                  <Table.Row>
-                    <Table.Cell>IKEA Couch</Table.Cell>
-                    <Table.Cell>Furniture</Table.Cell>
-                    <Table.Cell>$250</Table.Cell>
-                    <Table.Cell>Used</Table.Cell>
-                  </Table.Row>
-                </Table.Body>
-              </Table>
-            </Grid.Column>
-          </Grid>
+        <Container>
+              {this.props.users.map((user, index) =>
+                  <User key={index}
+                        user={user}/>)}
         </Container>
     );
   }
 }
+
+/** Require an array of Stuff documents in the props. */
+UserProfile.propTypes = {
+  users: PropTypes.array.isRequired,
+  ready: PropTypes.bool.isRequired,
+};
+
+/** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
+export default withTracker(() => {
+  // Get access to Stuff documents.
+  const subscription = Meteor.subscribe('Users');
+
+  return {
+    users: Users.find({}).fetch(),
+    ready: (subscription.ready()),
+  };
+})(UserProfile);

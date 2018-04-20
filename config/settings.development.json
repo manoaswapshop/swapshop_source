@@ -9,5 +9,13 @@
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
-  ]
+  ],
+
+  "defaultUsers": [
+    { "firstName": "Philip", "lastName": "Johnson", "userEmail": "test@foo.com",
+      "userNumber": "8888888", "uhNumber": "88888888",
+      "description": "I am a Professor of Information and Computer Sciences at the University of Hawaii.", "owner": "john@foo.com" },
+    { "firstName": "Henri",  "lastName": "Casanova", "userEmail": "test@foo.com",
+      "userNumber": "8888888",  "uhNumber": "88888888",
+      "description": "I am originally from France.", "owner": "john@foo.com" }]
 }
