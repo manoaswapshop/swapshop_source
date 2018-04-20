@@ -21,5 +21,14 @@
     { "name": "Quantum Physics Observed", "category": "textbooks", "condition": "fair", "price": 30, "owner": "heisenberg@foo.com", "location": "Campus Center Courtyard"},
     { "name": "End Table", "category": "furniture", "condition": "good", "price": 20, "owner": "marthaStewart@foo.com", "location": "Campus Center"},
     { "name": "It ain't Easy Being Weezy: A Biography", "category": "textbooks", "condition": "fair", "price": 5, "owner": "asthmatic@foo.com", "location": "Campus Center"}
-  ]
+  ],
+
+  "defaultUsers": [
+    { "firstName": "Philip", "lastName": "Johnson", "userEmail": "test@foo.com",
+      "userNumber": "8888888", "uhNumber": "88888888",
+      "description": "I am a Professor of Information and Computer Sciences at the University of Hawaii.", "owner": "john@foo.com" },
+    { "firstName": "Henri",  "lastName": "Casanova", "userEmail": "test@foo.com",
+      "userNumber": "8888888",  "uhNumber": "88888888",
+      "description": "I am originally from France.", "owner": "john@foo.com" }]
+
 }

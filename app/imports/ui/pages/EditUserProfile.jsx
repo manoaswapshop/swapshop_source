@@ -17,8 +17,17 @@ class EditUserProfile extends React.Component {
 
   /** On successful submit, insert the data. */
   submit(data) {
-    const { firstName, lastName, address, image, description, _id } = data;
-    Users.update(_id, { $set: { firstName, lastName, address, image, description } }, (error) => (error ?
+    const { firstName, lastName, userEmail, userNumber, uhNumber, description, _id } = data;
+    Users.update(_id, {
+      $set: {
+        firstName,
+        lastName,
+        userEmail,
+        userNumber,
+        uhNumber,
+        description,
+      },
+    }, (error) => (error ?
         Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
         Bert.alert({ type: 'success', message: 'Update succeeded' })));
   }
@@ -39,12 +48,13 @@ class EditUserProfile extends React.Component {
               <Segment>
                 <TextField name='firstName'/>
                 <TextField name='lastName'/>
-                <TextField name='address'/>
-                <TextField name='image'/>
+                <TextField name='userEmail'/>
+                <TextField name='userNumber'/>
+                <TextField name='uhNumber'/>
                 <LongTextField name='description'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
-                <HiddenField name='owner' />
+                <HiddenField name='owner'/>
               </Segment>
             </AutoForm>
           </Grid.Column>

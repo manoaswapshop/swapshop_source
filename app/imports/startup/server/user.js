@@ -11,7 +11,7 @@ function addData(data) {
 /** Initialize the collection if empty. */
 if (Users.find().count() === 0) {
   if (Meteor.settings.defaultUsers) {
-    console.log('Creating default contacts.');
+    console.log('Creating default users.');
     Meteor.settings.defaultUsers.map(data => addData(data));
   }
 }

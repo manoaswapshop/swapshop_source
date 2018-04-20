@@ -1,30 +1,70 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Container, Grid, Image, Header, Icon, Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
+import { withTracker } from 'meteor/react-meteor-data';
+import { Stuffs } from '/imports/api/stuff/stuff';
+import { Meteor } from 'meteor/meteor';
+import StuffItem from '/imports/ui/components/StuffItem';
 
-
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class User extends React.Component {
   render() {
+    const columnTwo = { paddingLeft: '50px' };
+    const containerStyle = { paddingTop: '50px', paddingBottom: '50px' };
     return (
-        <Card centered>
-          <Card.Content>
-            <Image floated='right' size='mini' src={this.props.user.image}/>
-            <Card.Header>
-              {this.props.user.firstName} {this.props.user.lastName}
-            </Card.Header>
-            <Card.Meta>
-              {this.props.user.address}
-            </Card.Meta>
-            <Card.Description>
-              {this.props.user.description}
-            </Card.Description>
-          </Card.Content>
-          <Card.Content extra>
-            <Link to={`/edit/${this.props.user._id}`}>Edit</Link>
-          </Card.Content>
-        </Card>
+        <Container style={containerStyle}>
+          <Grid columns={2}>
+            <Grid.Column width={4}>
+              <Image src='/images/peacock2016.jpg' circular/>
+              <hr/>
+              <Grid.Row>
+                <Header size='medium'> Contact Information </Header>
+              </Grid.Row>
+              <Grid.Row>
+                <Icon name='envelope'/> {this.props.user.userEmail}
+              </Grid.Row>
+              <Grid.Row>
+                <Icon name='phone'/> {this.props.user.userNumber}
+              </Grid.Row>
+              <Grid.Row>
+                <Link to={`/editprofile/${this.props.user._id}`}>Edit</Link>
+                UH Number: {this.props.user.uhNumber}
+              </Grid.Row>
+              <Grid.Row>
+                Short Description: {this.props.user.description}
+              </Grid.Row>
+            </Grid.Column>
+            <Grid.Column style={columnTwo} width={12}>
+              <Header size='large'> {this.props.user.firstName} {this.props.user.lastName} </Header>
+              <Header size='medium'> Reputation </Header>
+              <Grid.Row>
+                4.5
+                <Icon name='star'/>
+                <Icon name='star'/>
+                <Icon name='star'/>
+                <Icon name='star'/>
+                <Icon name='star half full'/>
+              </Grid.Row>
+
+              <Header size='medium'><Icon name='arrow circle outline up'/> Listings </Header>
+              <Table basic selectable>
+                <Table.Header>
+                  <Table.Row>
+                    <Table.HeaderCell> Item </Table.HeaderCell>
+                    <Table.HeaderCell> Category </Table.HeaderCell>
+                    <Table.HeaderCell> Price </Table.HeaderCell>
+                    <Table.HeaderCell> Condition </Table.HeaderCell>
+                  </Table.Row>
+                </Table.Header>
+
+                <Table.Body>
+                  {this.props.stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff}/>)}
+                </Table.Body>
+              </Table>
+            </Grid.Column>
+          </Grid>
+        </Container>
+
     );
   }
 }
@@ -32,7 +72,14 @@ class User extends React.Component {
 /** Require a document to be passed to this component. */
 User.propTypes = {
   user: PropTypes.object.isRequired,
+  stuffs: PropTypes.array.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withRouter(User);
+export default withRouter(withTracker(() => {
+  const subscription = Meteor.subscribe('Stuff');
+  return {
+    stuffs: Stuffs.find({}).fetch(),
+    ready: subscription.ready(),
+  };
+})(User));
