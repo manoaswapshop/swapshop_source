@@ -16,9 +16,7 @@ class UserProfile extends React.Component {
   renderPage() {
     return (
         <Container>
-              {this.props.users.map((user, index) =>
-                  <User key={index}
-                        user={user}/>)}
+          <User user={Meteor.user()}/>
         </Container>
     );
   }
