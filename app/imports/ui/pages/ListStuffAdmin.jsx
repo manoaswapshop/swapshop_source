@@ -17,22 +17,26 @@ class ListStuffAdmin extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <Container>
-          <Header as="h2" textAlign="center">List Stuff (Admin)</Header>
-          <Table celled>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>Name</Table.HeaderCell>
-                <Table.HeaderCell>Quantity</Table.HeaderCell>
-                <Table.HeaderCell>Condition</Table.HeaderCell>
-                <Table.HeaderCell>Owner</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              {this.props.stuffs.map((stuff) => <StuffItemAdmin key={stuff._id} stuff={stuff} />)}
-            </Table.Body>
-          </Table>
-        </Container>
+        <div className='background-image'>
+          <Container>
+            <Header as="h2" textAlign="center" inverted>Listed Items (Admin)</Header>
+            <Table celled>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>Name</Table.HeaderCell>
+                  <Table.HeaderCell>Category</Table.HeaderCell>
+                  <Table.HeaderCell>Condition</Table.HeaderCell>
+                  <Table.HeaderCell>Price</Table.HeaderCell>
+                  <Table.HeaderCell>Location</Table.HeaderCell>
+                  <Table.HeaderCell>Admin Tools</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                {this.props.stuffs.map((stuff) => <StuffItemAdmin key={stuff._id} stuff={stuff} />)}
+              </Table.Body>
+            </Table>
+          </Container>
+        </div>
     );
   }
 }
@@ -46,7 +50,7 @@ ListStuffAdmin.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('StuffAdmin');
+  const subscription = Meteor.subscribe('AllStuff');
   return {
     stuffs: Stuffs.find({}).fetch(),
     ready: subscription.ready(),
