@@ -54,6 +54,7 @@ class AddStuff extends React.Component {
                   <SelectField name='condition'/>
                   <NumField name='price' decimal={true}/>
                   <SelectField name='location'/>
+                  <TextField name='description'/>
                   <SubmitField value='Submit'/>
                   <ErrorsField/>
                   <HiddenField name='owner' value='fakeuser@foo.com'/>

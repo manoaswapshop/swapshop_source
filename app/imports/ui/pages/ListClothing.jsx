@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Table, Header, Loader } from 'semantic-ui-react';
+import { Grid, Table, Header, Loader } from 'semantic-ui-react';
 import { Stuffs } from '/imports/api/stuff/stuff';
 import StuffItem from '/imports/ui/components/StuffItem';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -18,23 +18,25 @@ class ListClothing extends React.Component {
   renderPage() {
     return (
         <div className='background-image'>
-          <Container>
-            <Header inverted as="h2" textAlign="center">Clothing</Header>
-            <Table celled>
-              <Table.Header>
-                <Table.Row>
-                  <Table.HeaderCell>Name</Table.HeaderCell>
-                  <Table.HeaderCell>Category</Table.HeaderCell>
-                  <Table.HeaderCell>Condition</Table.HeaderCell>
-                  <Table.HeaderCell>Price</Table.HeaderCell>
-                  <Table.HeaderCell>Location</Table.HeaderCell>
-                </Table.Row>
-              </Table.Header>
-              <Table.Body>
-                {this.props.stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} />)}
-              </Table.Body>
-            </Table>
-          </Container>
+          <Grid container centered>
+            <Grid.Column>
+              <Header inverted as="h2" textAlign="center">Clothing</Header>
+              <Table celled>
+                <Table.Header>
+                  <Table.Row>
+                    <Table.HeaderCell>Name</Table.HeaderCell>
+                    <Table.HeaderCell>Category</Table.HeaderCell>
+                    <Table.HeaderCell>Condition</Table.HeaderCell>
+                    <Table.HeaderCell>Price</Table.HeaderCell>
+                    <Table.HeaderCell>Location</Table.HeaderCell>
+                  </Table.Row>
+                </Table.Header>
+                <Table.Body>
+                  {this.props.stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} />)}
+                </Table.Body>
+              </Table>
+            </Grid.Column>
+          </Grid>
         </div>
     );
   }

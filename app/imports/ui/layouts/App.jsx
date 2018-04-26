@@ -13,6 +13,7 @@ import ListElectronics from '../pages/ListElectronics';
 import ListTextbooks from '../pages/ListTextbooks';
 import ListFurniture from '../pages/ListFurniture';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
+import ItemCardPage from '../pages/ItemCardPage';
 import AddStuff from '../pages/AddStuff';
 import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
@@ -45,6 +46,7 @@ class App extends React.Component {
               <ProtectedRoute path="/furniture" component={ListFurniture}/>
               <ProtectedRoute path="/add" component={AddStuff}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
+              <ProtectedRoute path="/card/:_id" component={ItemCardPage}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/userprofile" component={UserProfile}/>
               <ProtectedRoute path="/signout" component={Signout}/>
