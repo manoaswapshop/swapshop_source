@@ -24,8 +24,11 @@ export default class Help extends React.Component {
               <List ordered inverted>
                 <List.Item>Click on &#39;Listed Items&#39;</List.Item>
                 <List.Item>Select the item you wish to purchase</List.Item>
-                <List.Item>Look through the information and click confirm</List.Item>
-                <List.Item>Email the owner of the item if you have any questions regarding pricing</List.Item>
+                <List.Item>Look through the information and email the owner of the item if you have any
+                  questions</List.Item>
+                <List.Item>(FOR OWNERS ONLY) Please delete your listing on your profile if the transaction is
+                  successful. If any issues
+                  arise and cannot be resolved, please email us at themanoaswapshop@gmail.com</List.Item>
               </List>
             </Grid.Column>
 

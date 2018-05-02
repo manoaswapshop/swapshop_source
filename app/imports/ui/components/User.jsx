@@ -36,16 +36,6 @@ class User extends React.Component {
             <Grid.Column style={columnTwo} width={12}>
               <Header size='large'> {this.props.user.firstName} {this.props.user.lastName} </Header>
               <Link to={`/editprofile/${this.props.user._id}`}>Edit Profile</Link>
-              <Header size='medium'> Reputation </Header>
-              <Grid.Row>
-                4.5
-                <Icon name='star'/>
-                <Icon name='star'/>
-                <Icon name='star'/>
-                <Icon name='star'/>
-                <Icon name='star half full'/>
-              </Grid.Row>
-
               <Header size='medium'><Icon name='arrow circle outline up'/> Listings </Header>
               <Table basic selectable>
                 <Table.Header>
