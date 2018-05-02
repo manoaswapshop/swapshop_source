@@ -35,10 +35,9 @@ class Footer extends React.Component {
                   Contact Us
                   <hr />
                   <List link inverted>
-                    <List.Item as='a'>admin@email.com</List.Item>
+                    <List.Item as='a'>themanoaswapshop@gmail.com</List.Item>
                     <List.Item className="item">Phone: 808-867-5309</List.Item>
-                    <List.Item as='a'>Help</List.Item>
-                    <List.Item as='a'>FAQ</List.Item>
+                    <List.Item as={NavLink} exact to="/help">Help</List.Item>
                   </List>
                 </Grid.Column>
               </Grid>
