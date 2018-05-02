@@ -39,7 +39,7 @@ class ItemCardPage extends React.Component {
                   </Card.Content>
                   <Card.Content extra>
                     Owner: {this.props.stuff.owner}
-                    <br />Locaton: {this.props.stuff.location}
+                    <br />Location: {this.props.stuff.location}
                   </Card.Content>
                 </Card>
               </AutoForm>
