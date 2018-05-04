@@ -25,6 +25,11 @@ Meteor.publish('Users', function publish() {
   return this.ready();
 });
 
+Meteor.publish('AllUsers', function publish() {
+  return Users.find();
+  return this.ready();
+})
+
 /** This subscription publishes all documents regardless of user, but only if the logged in user is the Admin. */
 Meteor.publish('UsersAdmin', function publish() {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
