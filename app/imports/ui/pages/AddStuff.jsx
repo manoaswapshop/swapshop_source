@@ -1,8 +1,9 @@
 import React from 'react';
 import { Stuffs, StuffSchema } from '/imports/api/stuff/stuff';
-import { Grid, Segment, Header } from 'semantic-ui-react';
+import { Grid, Segment, Header, Image } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
+import LongTextField from 'uniforms-semantic/LongTextField';
 import NumField from 'uniforms-semantic/NumField';
 import SelectField from 'uniforms-semantic/SelectField';
 import SubmitField from 'uniforms-semantic/SubmitField';
@@ -10,6 +11,8 @@ import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
+import Dropzone from 'react-dropzone';
+import axios from 'axios';
 
 /** Renders the Page for adding a document. */
 class AddStuff extends React.Component {
@@ -21,6 +24,7 @@ class AddStuff extends React.Component {
     this.render = this.render.bind(this);
     this.insertCallback = this.insertCallback.bind(this);
     this.formRef = null;
+    this.state = { image: '' };
   }
 
   /** Notify the user of the results of the submit. If successful, clear the form. */
@@ -35,10 +39,39 @@ class AddStuff extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { name, category, condition, price, description, location } = data;
+    const { name, category, condition, price, location, image, description } = data;
     const owner = Meteor.user().username;
-    Stuffs.insert({ name, category, condition, price, location, description, owner }, this.insertCallback);
+    Stuffs.insert({ name, category, condition, price, location, image, description, owner }, this.insertCallback);
   }
+
+  handleDrop = files => {
+
+    const uploaders = files.map(file => {
+      // Initial FormData
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('tags', 'codeinfuse, medium, gist');
+      formData.append('upload_preset', 'qkwytuwz');
+      formData.append('api_key', '951522161423524');
+      formData.append('timestamp', Date.now());
+
+      return axios.post('https://api.cloudinary.com/v1_1/manoa-swap-shop/image/upload', formData, {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+      }).then(response => {
+        const data = response.data;
+        const fileURL = data.secure_url;
+        this.imageURL = fileURL;
+        this.setState({ image: fileURL });
+        console.log(data);
+        console.log(this.imageURL);
+      });
+
+    });
+
+    axios.all(uploaders).then(() => {
+
+    });
+  };
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
@@ -54,6 +87,14 @@ class AddStuff extends React.Component {
                   <SelectField name='condition'/>
                   <NumField name='price' decimal={true}/>
                   <SelectField name='location'/>
+                  <LongTextField editable={'false'} name='image' value={this.state.image}/>
+                  <Dropzone
+                      onDrop={this.handleDrop}
+                      multiple
+                      accept="image/*">
+                    <p>Drop your files or click here to upload</p>
+                    <Image width={'100'} height={'100'} src={this.state.image} circular/>
+                  </Dropzone>
                   <TextField name='description'/>
                   <SubmitField value='Submit'/>
                   <ErrorsField/>

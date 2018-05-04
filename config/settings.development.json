@@ -5,30 +5,37 @@
   ],
 
   "defaultData": [
-    { "name": "20 Inch Flatscreen", "category": "electronics", "condition": "excellent", "price": 100, "owner": "john@foo.com", "location": "Campus Center", "description": "SoKnee Bavarian PancakeScreen Television.  Good for games like DOG OF WAR."},
-    { "name": "History 121 Text", "category": "textbooks", "condition": "fair", "price": 15, "owner": "john@foo.com", "location": "Hamilton Library", "description": "HIStory not HERStory lul"},
-    { "name": "Star Wars T-Shirt", "category": "clothing", "condition": "fair", "price": 3, "owner": "john@foo.com", "location": "Campus Center", "description": "Star Wars, on a shirt, why would you NOT buy it."},
-    { "name": "Folding Chair", "category": "furniture", "condition": "poor", "price": 10, "owner": "john@foo.com", "location": "Campus Center Courtyard", "description": "A chair that folds......sometimes"},
-    { "name": "Xbox Juan", "category": "electronics", "condition": "excellent", "price": 200, "owner": "bob@foo.com", "location": "Campus Center", "description": "The only juan for you. The number juan console in America. This is the juan you want to buy. There is only juan joke here."},
-    { "name": "Flaystation 4", "category": "electronics", "condition": "fair", "price": 200, "owner": "chuthulu@foo.com", "location": "Campus Center", "description": "The mindflayer's favorite console, good for gaming and feeding off the sanity of your dorm mates."},
-    { "name": "Orange Couch", "category": "furniture", "condition": "poor", "price": 50, "owner": "keenan@foo.com", "location": "Campus Center", "description": "A couch that is orange (not its original color, don't ask)."},
-    { "name": "Mini Fridge", "category": "furniture", "condition": "fair", "price": 40, "owner": "mrFreeze@foo.com", "location": "Hamilton Library", "description": "A tiny fridge, for tiny people."},
-    { "name": "Basketball Jersey", "category": "clothing", "condition": "fair", "price": 5, "owner": "mJordan@foo.com", "location": "Hamilton Library", "description": "Not Kobe's Jersey, just some dude named Jordan. Got it from my dad."},
-    { "name": "Mating Habits of Etruscan Owls", "category": "textbooks", "condition": "good", "price": 50, "owner": "owlman@foo.com", "location": "Hamilton Library", "description": "I like SuperbOwls and so should you."},
-    { "name": "Your Tumor and You", "category": "textbooks", "condition": "good", "price": 200, "owner": "itsNotaTumor@foo.com", "location": "Campus Center Courtyard", "description": "It really isn't a tumor, I swear. They're more like friends, buddies at this point."},
-    { "name": "Floral Dress", "category": "clothing", "condition": "excellent", "price": 10, "owner": "girlygirl@foo.com", "location": "Campus Center Courtyard", "description": "Awesome dress, that I like never wore, Becky totally loved it though and you will to."},
-    { "name": "uPad Tablet", "category": "electronics", "condition": "fair", "price": 40, "owner": "steveHobs@foo.com", "location": "Campus Center", "description": "Innovative, Special, and Industry Defining. You can have the uPad for all your computing needs."},
-    { "name": "Quantum Physics Observed", "category": "textbooks", "condition": "fair", "price": 30, "owner": "heisenberg@foo.com", "location": "Campus Center Courtyard", "description": "The contents of the book seem to change based on how I look at them. Got confusing after awhile."},
-    { "name": "End Table", "category": "furniture", "condition": "good", "price": 20, "owner": "marthaStewart@foo.com", "location": "Campus Center", "description": "A nice brown end table to go with a nice orange couch for a good Fall-Autumn look."},
-    { "name": "It ain't Easy Being Weezy: A Biography", "category": "textbooks", "condition": "fair", "price": 5, "owner": "asthmatic@foo.com", "location": "Campus Center", "description": "Inhaler not included. Cool book about a Famous person with Asthma, left me breathless."}
+    { "name": "20 Inch Flatscreen", "category": "electronics", "condition": "excellent", "price": 100, "owner": "john@foo.com", "location": "Campus Center", "image": "none", "description": "SoKnee Bavarian PancakeScreen Television.  Good for games like DOG OF WAR."},
+    { "name": "History 121 Text", "category": "textbooks", "condition": "fair", "price": 15, "owner": "john@foo.com", "location": "Hamilton Library", "image": "none", "description": "HIStory not HERStory lul"},
+    { "name": "Star Wars T-Shirt", "category": "clothing", "condition": "fair", "price": 3, "owner": "john@foo.com", "location": "Campus Center", "image": "none", "description": "Star Wars, on a shirt, why would you NOT buy it."},
+    { "name": "Folding Chair", "category": "furniture", "condition": "poor", "price": 10, "owner": "john@foo.com", "location": "Campus Center Courtyard", "image": "none", "description": "A chair that folds......sometimes"},
+    { "name": "Xbox Juan", "category": "electronics", "condition": "excellent", "price": 200, "owner": "bob@foo.com", "location": "Campus Center", "image": "none", "description": "The only juan for you. The number juan console in America. This is the juan you want to buy. There is only juan joke here."},
+    { "name": "Flaystation 4", "category": "electronics", "condition": "fair", "price": 200, "owner": "chuthulu@foo.com", "location": "Campus Center", "image": "none", "description": "The mindflayer's favorite console, good for gaming and feeding off the sanity of your dorm mates."},
+    { "name": "Orange Couch", "category": "furniture", "condition": "poor", "price": 50, "owner": "keenan@foo.com", "location": "Campus Center", "image": "none", "description": "A couch that is orange (not its original color, don't ask)."},
+    { "name": "Mini Fridge", "category": "furniture", "condition": "fair", "price": 40, "owner": "mrFreeze@foo.com", "location": "Hamilton Library", "image": "none", "description": "A tiny fridge, for tiny people."},
+    { "name": "Basketball Jersey", "category": "clothing", "condition": "fair", "price": 5, "owner": "mJordan@foo.com", "location": "Hamilton Library", "image": "none", "description": "Not Kobe's Jersey, just some dude named Jordan. Got it from my dad."},
+    { "name": "Mating Habits of Etruscan Owls", "category": "textbooks", "condition": "good", "price": 50, "owner": "owlman@foo.com", "location": "Hamilton Library", "image": "none", "description": "I like SuperbOwls and so should you."},
+    { "name": "Your Tumor and You", "category": "textbooks", "condition": "good", "price": 200, "owner": "itsNotaTumor@foo.com", "location": "Campus Center Courtyard", "image": "none", "description": "It really isn't a tumor, I swear. They're more like friends, buddies at this point."},
+    { "name": "Floral Dress", "category": "clothing", "condition": "excellent", "price": 10, "owner": "girlygirl@foo.com", "location": "Campus Center Courtyard", "image": "none", "description": "Awesome dress, that I like never wore, Becky totally loved it though and you will to."},
+    { "name": "uPad Tablet", "category": "electronics", "condition": "fair", "price": 40, "owner": "steveHobs@foo.com", "location": "Campus Center", "image": "none", "description": "Innovative, Special, and Industry Defining. You can have the uPad for all your computing needs."},
+    { "name": "Quantum Physics Observed", "category": "textbooks", "condition": "fair", "price": 30, "owner": "heisenberg@foo.com", "location": "Campus Center Courtyard", "image": "none", "description": "The contents of the book seem to change based on how I look at them. Got confusing after awhile."},
+    { "name": "End Table", "category": "furniture", "condition": "good", "price": 20, "owner": "marthaStewart@foo.com", "location": "Campus Center", "image": "none", "description": "A nice brown end table to go with a nice orange couch for a good Fall-Autumn look."},
+    { "name": "It ain't Easy Being Weezy: A Biography", "category": "textbooks", "condition": "fair", "price": 5, "owner": "asthmatic@foo.com", "location": "Campus Center", "image": "none", "description": "Inhaler not included. Cool book about a Famous person with Asthma, left me breathless."}
   ],
 
   "defaultUsers": [
     { "firstName": "Philip", "lastName": "Johnson", "userEmail": "test@foo.com",
-      "userNumber": "8888888", "uhNumber": "88888888",
+      "phoneNumber": "8888888", "uhNumber": "88888888", "image": "https://philipmjohnson.github.io/images/philip2.jpeg",
       "description": "I am a Professor of Information and Computer Sciences at the University of Hawaii.", "owner": "john@foo.com" },
     { "firstName": "Henri",  "lastName": "Casanova", "userEmail": "test@foo.com",
-      "userNumber": "8888888",  "uhNumber": "88888888",
-      "description": "I am originally from France.", "owner": "john@foo.com" }]
+      "phoneNumber": "8888888",  "uhNumber": "88888888", "image": "https://avatars0.githubusercontent.com/u/7494478?s=460&v=4",
+      "description": "I am originally from France.", "owner": "john@foo.com" }],
+
+  "public": {
+    "CLOUDINARY_API_KEY": "[951522161423524]",
+    "CLOUDINARY_CLOUD_NAME": "[manoa-swap-shop]"
+  },
+
+  "CLOUDINARY_API_SECRET": "[y-9rdONUhaCqwuv8VI8Emp5rBEI]"
 
 }

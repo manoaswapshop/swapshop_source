@@ -25,6 +25,7 @@ const StuffSchema = new SimpleSchema({
     allowedValues: ['Campus Center', 'Campus Center Courtyard', 'Hamilton Library'],
     defaultValue: 'Campus Center',
   },
+  image: String,
   description: String,
 }, { tracker: Tracker });
 

@@ -8,6 +8,7 @@ import { Meteor } from 'meteor/meteor';
 import StuffItemAdmin from '/imports/ui/components/StuffItemAdmin';
 
 class User extends React.Component {
+
   render() {
     const columnTwo = { paddingLeft: '50px' };
     const containerStyle = { paddingTop: '50px', paddingBottom: '50px' };
@@ -15,7 +16,10 @@ class User extends React.Component {
         <Container style={containerStyle}>
           <Grid columns={2}>
             <Grid.Column width={4}>
-              <Image src='/images/peacock2016.jpg' circular/>
+              <Image
+                 size='medium'
+                  src={this.props.user.image}
+                  circular/>
               <hr/>
               <Grid.Row>
                 <Header size='medium'> Contact Information </Header>
@@ -24,7 +28,7 @@ class User extends React.Component {
                 <Icon name='envelope'/> {this.props.user.userEmail}
               </Grid.Row>
               <Grid.Row>
-                <Icon name='phone'/> {this.props.user.userNumber}
+                <Icon name='phone'/> {this.props.user.phoneNumber}
               </Grid.Row>
               <Grid.Row>
                 UH Number: {this.props.user.uhNumber}
