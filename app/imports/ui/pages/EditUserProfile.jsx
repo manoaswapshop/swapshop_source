@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
+import { Grid, Loader, Header, Segment, Image } from 'semantic-ui-react';
 import { Users, UserSchema } from '/imports/api/user/user';
 import { Bert } from 'meteor/themeteorchef:bert';
 import AutoForm from 'uniforms-semantic/AutoForm';
@@ -11,26 +11,65 @@ import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import Dropzone from 'react-dropzone';
+import axios from 'axios';
 
 /** Renders the Page for editing a single document. */
 class EditUserProfile extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.submit = this.submit.bind(this);
+    this.formRef = null;
+    this.state = { image: '' };
+  }
+
   /** On successful submit, insert the data. */
   submit(data) {
-    const { firstName, lastName, userEmail, userNumber, uhNumber, description, _id } = data;
+    const { firstName, lastName, userEmail, phoneNumber, uhNumber, image, description, _id } = data;
     Users.update(_id, {
       $set: {
         firstName,
         lastName,
         userEmail,
-        userNumber,
+        phoneNumber,
         uhNumber,
+        image,
         description,
       },
     }, (error) => (error ?
         Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
         Bert.alert({ type: 'success', message: 'Update succeeded' })));
   }
+
+  handleDrop = files => {
+
+    const uploaders = files.map(file => {
+      // Initial FormData
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('tags', 'codeinfuse, medium, gist');
+      formData.append('upload_preset', 'qkwytuwz');
+      formData.append('api_key', '951522161423524');
+      formData.append('timestamp', Date.now());
+
+      return axios.post('https://api.cloudinary.com/v1_1/manoa-swap-shop/image/upload', formData, {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+      }).then(response => {
+        const data = response.data;
+        const fileURL = data.secure_url;
+        this.imageURL = fileURL;
+        this.setState({ image: fileURL });
+        console.log(data);
+        console.log(this.imageURL);
+      });
+
+    });
+
+    axios.all(uploaders).then(() => {
+
+    });
+  };
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -49,8 +88,16 @@ class EditUserProfile extends React.Component {
                 <TextField name='firstName'/>
                 <TextField name='lastName'/>
                 <TextField name='userEmail'/>
-                <TextField name='userNumber'/>
+                <TextField name='phoneNumber'/>
                 <TextField name='uhNumber'/>
+                <LongTextField editable={'false'} name='image' value={this.state.image}/>
+                <Dropzone
+                    onDrop={this.handleDrop}
+                    multiple
+                    accept="image/*">
+                  <p>Drop your files or click here to upload</p>
+                  <Image width={'100'} height={'100'} src={this.state.image} circular/>
+                </Dropzone>
                 <LongTextField name='description'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>

@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Grid, Header, Loader, Card } from 'semantic-ui-react';
+import { Grid, Header, Loader, Card, Image } from 'semantic-ui-react';
 import { Stuffs, StuffSchema } from '/imports/api/stuff/stuff';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -15,9 +15,9 @@ class ItemCardPage extends React.Component {
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader>Getting data</Loader>;
   }
-
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    const menuStyle = { marginTop: '10px' };
     return (
         <div className='background-image'>
           <Grid container centered>
@@ -26,7 +26,8 @@ class ItemCardPage extends React.Component {
                 <Header as="h2" textAlign="center" inverted>{this.props.stuff.name}</Header>
                 <Card centered>
                   <Card.Content>
-                    <Card.Header>
+                    <Image fluid src={this.props.stuff.image}/>
+                    <Card.Header style={menuStyle}>
                       ${this.props.stuff.price}
                     </Card.Header>
                     <Card.Meta>
@@ -40,7 +41,7 @@ class ItemCardPage extends React.Component {
                   <Card.Content extra>
                     Owner: {this.props.stuff.owner}
                     <br />Locaton: {this.props.stuff.location}
-                  </Card.Content>
+                    </Card.Content>
                 </Card>
               </AutoForm>
             </Grid.Column>

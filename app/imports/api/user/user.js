@@ -10,8 +10,9 @@ const UserSchema = new SimpleSchema({
   firstName: String,
   lastName: String,
   userEmail: String,
-  userNumber: String,
+  phoneNumber: String,
   uhNumber: String,
+  image: String,
   description: String,
   owner: String,
 }, { tracker: Tracker });
