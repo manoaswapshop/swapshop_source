@@ -5,7 +5,7 @@ import { withRouter, Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Stuffs } from '/imports/api/stuff/stuff';
 import { Meteor } from 'meteor/meteor';
-import StuffItem from '/imports/ui/components/StuffItem';
+import StuffItemAdmin from '/imports/ui/components/StuffItemAdmin';
 
 class User extends React.Component {
   render() {
@@ -44,11 +44,12 @@ class User extends React.Component {
                     <Table.HeaderCell> Category </Table.HeaderCell>
                     <Table.HeaderCell> Condition </Table.HeaderCell>
                     <Table.HeaderCell> Price </Table.HeaderCell>
+                    <Table.HeaderCell> Actions </Table.HeaderCell>
                   </Table.Row>
                 </Table.Header>
 
                 <Table.Body>
-                  {this.props.stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff}/>)}
+                  {this.props.stuffs.map((stuff) => <StuffItemAdmin key={stuff._id} stuff={stuff}/>)}
                 </Table.Body>
               </Table>
             </Grid.Column>

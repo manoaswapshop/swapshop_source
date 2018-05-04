@@ -42,7 +42,6 @@ class StuffItemAdmin extends React.Component {
           <Table.Cell>{this.props.stuff.location}</Table.Cell>
           <Table.Cell>
             <Button basic onClick={this.onClick}>Delete</Button>
-
           </Table.Cell>
         </Table.Row>
     );
