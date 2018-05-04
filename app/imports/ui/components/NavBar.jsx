@@ -5,6 +5,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
 import { Menu, Dropdown, Header } from 'semantic-ui-react';
 import { Roles } from 'meteor/alanning:roles';
+import { Users } from '/imports/api/user/user';
 
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
 class NavBar extends React.Component {
@@ -17,7 +18,8 @@ class NavBar extends React.Component {
           </Menu.Item>
           {this.props.currentUser ? (
               [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>List an Item</Menu.Item>,
-                <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>Listed Items</Menu.Item>]
+                <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>Listed Items</Menu.Item>,
+                <Menu.Item as={NavLink} activeClassName="active" exact to="/listusers" key='users'>All Users</Menu.Item>]
           ) : ''}
           {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>
@@ -35,7 +37,7 @@ class NavBar extends React.Component {
                 <Dropdown text={this.props.currentUser} pointing="top right" icon={'user'}>
                   <Dropdown.Menu>
 
-                    <Dropdown.Item icon="id card" text="My Profile" as={NavLink} exact to="/userprofile"/>
+                    <Dropdown.Item icon="id card" text="My Profile" as={NavLink} to="/userprofile/"/>
                     < Dropdown.Item icon="sign out" text="Sign Out" as={NavLink} exact to="/signout"/>
 
                   </Dropdown.Menu>
@@ -49,14 +51,14 @@ class NavBar extends React.Component {
 
 /** Declare the types of all properties. */
 NavBar.propTypes = {
+  user: PropTypes.object.isRequired,
   currentUser: PropTypes.string,
-  user: PropTypes.object,
 };
 
-/** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
+/** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker*/
 const NavBarContainer = withTracker(() => ({
   currentUser: Meteor.user() ? Meteor.user().username : '',
 }))(NavBar);
 
-/** Enable ReactRouter for this component. https://reacttraining.com/react-router/web/api/withRouter */
+/** Enable ReactRouter for this component. https://reacttraining.com/react-router/web/api/withRouter*/
 export default withRouter(NavBarContainer);

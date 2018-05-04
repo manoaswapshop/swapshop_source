@@ -3,8 +3,10 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Grid, Header, Loader, Card } from 'semantic-ui-react';
 import { Stuffs, StuffSchema } from '/imports/api/stuff/stuff';
+import { Users, UserSchema } from '/imports/api/user/user';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import { withTracker } from 'meteor/react-meteor-data';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 
@@ -38,8 +40,10 @@ class ItemCardPage extends React.Component {
                     </Card.Description>
                   </Card.Content>
                   <Card.Content extra>
-                    Owner: {this.props.stuff.owner}
-                    <br />Locaton: {this.props.stuff.location}
+                    <Link to={`/card/${this.props.stuff._id}`}>
+                      Owner: {this.props.stuff.owner}
+                    </Link>
+                    <br />Location: {this.props.stuff.location}
                   </Card.Content>
                 </Card>
               </AutoForm>
@@ -53,6 +57,7 @@ class ItemCardPage extends React.Component {
 /** Require an array of Stuff documents in the props. */
 ItemCardPage.propTypes = {
   stuff: PropTypes.object,
+  user: PropTypes.object,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -61,8 +66,10 @@ export default withTracker(({ match }) => {
   // Get access to Stuff documents.
   const documentId = match.params._id;
   const subscription = Meteor.subscribe('AllStuff');
+  const profile = Meteor.subscribe('AllUsers');
   return {
     stuff: Stuffs.findOne(documentId),
-    ready: subscription.ready(),
+    user: Users.findOne(documentId),
+    ready: subscription.ready() && profile.ready(),
   };
 })(ItemCardPage);

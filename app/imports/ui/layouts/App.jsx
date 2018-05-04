@@ -24,6 +24,9 @@ import UserProfile from '../pages/UserProfile';
 import About from '../pages/About';
 import EditUserProfile from '../pages/EditUserProfile';
 import UserProfileCreation from '../pages/UserProfileCreation';
+import { withTracker } from 'meteor/react-meteor-data';
+import { Users } from '/imports/api/user/user';
+import ListUsers from '../pages/ListUsers';
 
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
@@ -48,7 +51,8 @@ class App extends React.Component {
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
               <ProtectedRoute path="/card/:_id" component={ItemCardPage}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
-              <ProtectedRoute path="/userprofile" component={UserProfile}/>
+              <ProtectedRoute path="/userprofile/:_id" component={UserProfile}/>
+              <ProtectedRoute path="/listusers" component={ListUsers}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <ProtectedRoute path="/editprofile/:_id" component={EditUserProfile}/>
               <Route component={NotFound}/>
@@ -97,6 +101,11 @@ const AdminProtectedRoute = ({ component: Component, ...rest }) => (
     />
 );
 
+App.propTypes = {
+  user: PropTypes.array.isRequired,
+  ready: PropTypes.bool.isRequired,
+};
+
 /** Require a component and location to be passed to each ProtectedRoute. */
 ProtectedRoute.propTypes = {
   component: PropTypes.func.isRequired,
@@ -109,4 +118,10 @@ AdminProtectedRoute.propTypes = {
   location: PropTypes.object,
 };
 
-export default App;
+export default withTracker(() => {
+  const subscription = Meteor.subscribe('AllUsers');
+  return {
+    users: Users.find({}).fetch(),
+    ready: subscription.ready(),
+  };
+})(App);
