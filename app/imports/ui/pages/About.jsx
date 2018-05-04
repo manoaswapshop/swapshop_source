@@ -14,11 +14,11 @@ export default class About extends React.Component {
 
             <Grid.Column textAlign='center'>
               <Icon size='huge' name='browser' inverted/>
-              <Header as='h1' inverted>Organized List of Items</Header>
-              <Header as='h3' inverted>All of the available items being offered will be presented with a simple yet
-                streamlined interface that will assist users in finding exactly what they want. Users will be given
-                access to filters that will allow them to find products based on categories and prices. A search bar
-                will also be included for further detail in specifying what item you are searching for. </Header>
+              <Header as='h1' inverted>List of Items</Header>
+              <Header as='h3' inverted>All of the available items being offered will be presented in a simple list that
+                will display helpful information about each product. Each item will have a clickable link that will lead
+                to an Item Card Page with additional information. Links at the bottom of the app lead to specific
+                category pages that help users to find exactly what they want.</Header>
             </Grid.Column>
 
             <Grid.Column textAlign='center'>
@@ -35,8 +35,8 @@ export default class About extends React.Component {
               <Icon size='huge' name='location arrow' inverted/>
               <Header as='h1' inverted>Product Exchange</Header>
               <Header as='h3' inverted>When a user buys an item, communication between the buyer and seller will be
-                established. The Manoa Swap Shop will provide a list of safe locations on UH Manoa campus that both
-                parties can
+                established through contact information provided in each users&#39; profile. The Manoa Swap Shop will
+                provide a list of safe locations on UH Manoa campus that both parties can
                 agree to meet at to exchange money and goods.</Header>
             </Grid.Column>
 
