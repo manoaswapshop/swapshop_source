@@ -1,5 +1,6 @@
 import React from 'react';
 import { Stuffs, StuffSchema } from '/imports/api/stuff/stuff';
+import { Users, UserSchema } from '/imports/api/user/user';
 import { Grid, Segment, Header, Image } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
@@ -13,7 +14,8 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
-
+import PropTypes from 'prop-types';
+import { withTracker } from 'meteor/react-meteor-data';
 /** Renders the Page for adding a document. */
 class AddStuff extends React.Component {
 
@@ -41,7 +43,8 @@ class AddStuff extends React.Component {
   submit(data) {
     const { name, category, condition, price, location, image, description } = data;
     const owner = Meteor.user().username;
-    Stuffs.insert({ name, category, condition, price, location, image, description, owner }, this.insertCallback);
+    const userId = '';
+    Stuffs.insert({ name, category, condition, price, location, image, description, owner, userId }, this.insertCallback);
   }
 
   handleDrop = files => {
@@ -75,6 +78,7 @@ class AddStuff extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
+    // noinspection JSAnnotator
     return (
         <div className='background-image'>
           <Grid container centered>
@@ -99,6 +103,7 @@ class AddStuff extends React.Component {
                   <SubmitField value='Submit'/>
                   <ErrorsField/>
                   <HiddenField name='owner' value='fakeuser@foo.com'/>
+                  <HiddenField name='userId' value={this.props.user._id}/>
                 </Segment>
               </AutoForm>
             </Grid.Column>
@@ -108,4 +113,17 @@ class AddStuff extends React.Component {
   }
 }
 
-export default AddStuff;
+AddStuff.propTypes = {
+  user: PropTypes.array,
+  ready: PropTypes.bool.isRequired,
+};
+
+/** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
+export default withTracker(() => {
+  // Get access to Stuff documents.
+  const subscription = Meteor.subscribe('Users');
+  return {
+    user: Users.find({}).fetch(),
+    ready: subscription.ready(),
+  };
+})(AddStuff);

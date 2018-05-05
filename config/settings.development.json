@@ -24,18 +24,54 @@
   ],
 
   "defaultUsers": [
-    { "firstName": "Philip", "lastName": "Johnson", "userEmail": "test@foo.com",
-      "phoneNumber": "8888888", "uhNumber": "88888888", "image": "https://philipmjohnson.github.io/images/philip2.jpeg",
-      "description": "I am a Professor of Information and Computer Sciences at the University of Hawaii.", "owner": "john@foo.com" },
-    { "firstName": "Henri",  "lastName": "Casanova", "userEmail": "test@foo.com",
-      "phoneNumber": "8888888",  "uhNumber": "88888888", "image": "https://avatars0.githubusercontent.com/u/7494478?s=460&v=4",
-      "description": "I am originally from France.", "owner": "john@foo.com" }],
+    { "firstName": "John", "lastName": "Johnson", "userEmail": "john@foo.com",
+      "userNumber": "8888888", "uhNumber": "88888888",
+      "description": "The Johnest John to ever John.", "owner": "john@foo.com" },
+    { "firstName": "Victor", "lastName": "Frieze", "userEmail": "mrFreeze@foo.com",
+      "userNumber": "5550000", "uhNumber": "00000001",
+      "description": "What killed the dinosaurs? THE ICE AGE!", "owner": "mrFreeze@foo.com" },
+    { "firstName": "Bob", "lastName": "Bobberson", "userEmail": "bob@foo.com",
+      "userNumber": "8088085", "uhNumber": "8080808",
+      "description": "The Juan and only Bob Bobberson.", "owner": "bob@foo.com" },
+    { "firstName": "Keenan", "lastName": "and Kel", "userEmail": "keenan@foo.com",
+      "userNumber": "5555555", "uhNumber": "55555555",
+      "description": "Who love orange soda? Kel loves orange soda.", "owner": "keenan@foo.com" },
+    { "firstName": "Maurice", "lastName": "Jordan", "userEmail": "mJordan@foo.com",
+      "userNumber": "7733232", "uhNumber": "32323232",
+      "description": "My dad used to play basketball for some team from Chicago.", "owner": "mJordan@foo.com" },
+    { "firstName": "Steve", "lastName": "Hobs", "userEmail": "steveHobs@foo.com",
+      "userNumber": "9876543", "uhNumber": "1101101",
+      "description": "For the last time I am not that guy, I just like black turtle necks.", "owner": "steveHobs@foo.com" },
+    { "firstName": "Owl", "lastName": "Man", "userEmail": "owlman@foo.com",
+      "userNumber": "1234007", "uhNumber": "40074007",
+      "description": "I love watching Superb Owls in nature. It's quite a hoot.", "owner": "owlman@foo.com" },
+    { "firstName": "Werner", "lastName": "Heisenberg", "userEmail": "heisenberg@foo.com",
+      "userNumber": "5432109", "uhNumber": "20202020",
+      "description": "Never be too sure of what you see.", "owner": "heisenberg@foo.com" },
+    { "firstName": "Chuthulu", "lastName": "The Deep One", "userEmail": "chuthulu@foo.com",
+      "userNumber": "0000000", "uhNumber": "00000000",
+      "description": "Embrace insanity.", "owner": "chuthulu@foo.com" },
+    { "firstName": "Martha", "lastName": "Stewart", "userEmail": "marthaStewart@foo.com",
+      "userNumber": "8675309", "uhNumber": "44444444",
+      "description": "Snoop Dog was such a nice gentleman.", "owner": "marthaStewart@foo.com" },
+    { "firstName": "Zephyr", "lastName": "Gale", "userEmail": "asthmatic@foo.com",
+      "userNumber": "3335678", "uhNumber": "22222222",
+      "description": "Im always a little winded, but I usually get my second wind soon.", "owner": "asthmatic@foo.com" },
+    { "firstName": "Ahnald", "lastName": "Shwartzenyager", "userEmail": "itsNotaTumor@foo.com",
+      "userNumber": "9990000", "uhNumber": "87654321",
+      "description": "It was never a tumah, I was just getting pumped up.", "owner": "itsNotaTumor@foo.com" },
+    { "firstName": "Brittany", "lastName": "Freebush", "userEmail": "girlygirl@foo.com",
+      "userNumber": "4567890", "uhNumber": "12345678",
+      "description": "I like totally want to get rid of my old stuff so I can like buy new stuff.", "owner": "girlygirl@foo.com" },
+    { "firstName": "Doom",  "lastName": "Guy", "userEmail": "doomguy@foo.com",
+      "userNumber": "6664377",  "uhNumber": "12345678",
+      "description": "I kill Demons.", "owner": "doomguy@foo.com" }],
 
-  "public": {
-    "CLOUDINARY_API_KEY": "[951522161423524]",
-    "CLOUDINARY_CLOUD_NAME": "[manoa-swap-shop]"
-  },
+"public": {
+"CLOUDINARY_API_KEY": "[951522161423524]",
+"CLOUDINARY_CLOUD_NAME": "[manoa-swap-shop]"
+},
 
-  "CLOUDINARY_API_SECRET": "[y-9rdONUhaCqwuv8VI8Emp5rBEI]"
+"CLOUDINARY_API_SECRET": "[y-9rdONUhaCqwuv8VI8Emp5rBEI]"
 
 }

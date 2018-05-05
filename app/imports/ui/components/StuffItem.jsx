@@ -14,6 +14,8 @@ class StuffItem extends React.Component {
           <Table.Cell>{this.props.stuff.condition}</Table.Cell>
           <Table.Cell>${this.props.stuff.price}</Table.Cell>
           <Table.Cell>{this.props.stuff.location}</Table.Cell>
+          <Table.Cell>{this.props.stuff.userId}</Table.Cell>
+          <Table.Cell><Link to={`/profile/${this.props.stuff.userId}`}>{this.props.stuff.owner}</Link></Table.Cell>
         </Table.Row>
     );
   }
@@ -22,6 +24,7 @@ class StuffItem extends React.Component {
 /** Require a document to be passed to this component. */
 StuffItem.propTypes = {
   stuff: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

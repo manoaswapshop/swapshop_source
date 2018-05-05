@@ -41,9 +41,7 @@ class ItemCardPage extends React.Component {
                     </Card.Description>
                   </Card.Content>
                   <Card.Content extra>
-                    <Link to={`/card/${this.props.user._id}`}>
                       Owner: {this.props.stuff.owner}
-                    </Link>
                     <br />Location: {this.props.stuff.location}
                   </Card.Content>
 

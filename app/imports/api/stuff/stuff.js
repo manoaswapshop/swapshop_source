@@ -27,6 +27,7 @@ const StuffSchema = new SimpleSchema({
   },
   image: String,
   description: String,
+  userId: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

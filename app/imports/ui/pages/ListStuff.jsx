@@ -2,6 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Grid, Table, Header, Loader } from 'semantic-ui-react';
 import { Stuffs } from '/imports/api/stuff/stuff';
+import { Users } from '/imports/api/user/user';
 import StuffItem from '/imports/ui/components/StuffItem';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -29,10 +30,13 @@ class ListStuff extends React.Component {
                     <Table.HeaderCell>Condition</Table.HeaderCell>
                     <Table.HeaderCell>Price</Table.HeaderCell>
                     <Table.HeaderCell>Location</Table.HeaderCell>
+                    <Table.HeaderCell>User</Table.HeaderCell>
+                    <Table.HeaderCell>Owner</Table.HeaderCell>
                   </Table.Row>
                 </Table.Header>
                 <Table.Body>
-                  {this.props.stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} />)}
+                  {this.props.stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff}
+                                                               user={this.props.user.filter(user => (user.userId === user._id))}/>)}
                 </Table.Body>
               </Table>
             </Grid.Column>
@@ -45,6 +49,7 @@ class ListStuff extends React.Component {
 /** Require an array of Stuff documents in the props. */
 ListStuff.propTypes = {
   stuffs: PropTypes.array.isRequired,
+  user: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -52,8 +57,10 @@ ListStuff.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('AllStuff');
+  const subscription2 = Meteor.subscribe('AllUsers');
   return {
     stuffs: Stuffs.find({}).fetch(),
+    user: Users.find({}).fetch(),
     ready: subscription.ready(),
   };
 })(ListStuff);

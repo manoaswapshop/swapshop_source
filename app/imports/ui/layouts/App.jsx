@@ -21,6 +21,7 @@ import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import UserProfile from '../pages/UserProfile';
+import Profile from '../pages/Profile';
 import About from '../pages/About';
 import EditUserProfile from '../pages/EditUserProfile';
 import UserProfileCreation from '../pages/UserProfileCreation';
@@ -51,6 +52,7 @@ class App extends React.Component {
               <ProtectedRoute path="/card/:_id" component={ItemCardPage}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/userprofile" component={UserProfile}/>
+              <ProtectedRoute path="/profile/:_id" component={Profile}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <ProtectedRoute path="/editprofile/:_id" component={EditUserProfile}/>
 
