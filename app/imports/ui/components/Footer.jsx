@@ -10,7 +10,7 @@ class Footer extends React.Component {
     return (
         <footer>
           <div style={divStyle} className="uh-background">
-              <Grid centered textAlign="left" columns={3}>
+              <Grid centered textAlign="left" columns={2}>
                 <Grid.Column>
                   Categories
                   <hr />
@@ -19,16 +19,6 @@ class Footer extends React.Component {
                     <List.Item as={NavLink} exact to="/textbooks">-Textbooks</List.Item>
                     <List.Item as={NavLink} exact to="/electronics">-Electronics</List.Item>
                     <List.Item as={NavLink} exact to="/furniture">-Furniture</List.Item>
-                  </List>
-                </Grid.Column>
-                <Grid.Column>
-                  Popular Items
-                  <hr />
-                  <List>
-                    <List.Item>-Lorem Ipsum</List.Item>
-                    <List.Item>-Lorem Ipsum</List.Item>
-                    <List.Item>-Lorem Ipsum</List.Item>
-                    <List.Item>-Lorem Ipsum</List.Item>
                   </List>
                 </Grid.Column>
                 <Grid.Column>

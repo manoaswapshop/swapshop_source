@@ -2,7 +2,7 @@ import React from 'react';
 import { Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
-import { Stuffs } from '/imports/api/stuff/stuff';
+// import { Stuffs } from '/imports/api/stuff/stuff';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class StuffItem extends React.Component {
